@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>TomcatTest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+	<servlet>
+		<servlet-name>alluserQuery</servlet-name>
+		<servlet-class>user.monitor.queryallAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>alluserQuery</servlet-name>
+		<url-pattern>/alluserQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>POIoutTemplate</servlet-name>
+		<servlet-class>com.wp.poi.POIoutTemplate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>POIoutTemplate</servlet-name>
+		<url-pattern>/POIoutTemplate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userQuery</servlet-name>
+		<servlet-class>user.monitor.queryAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userQuery</servlet-name>
+		<url-pattern>/userQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userChange</servlet-name>
+		<servlet-class>user.monitor.changeAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userChange</servlet-name>
+		<url-pattern>/userChange</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userSearch</servlet-name>
+		<servlet-class>user.monitor.searchAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userSearch</servlet-name>
+		<url-pattern>/userSearch</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>allcourseQuery</servlet-name>
+		<servlet-class>course.monitor.queryallAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>allcourseQuery</servlet-name>
+		<url-pattern>/allcourseQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>courseQuery</servlet-name>
+		<servlet-class>course.monitor.queryAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseQuery</servlet-name>
+		<url-pattern>/courseQuery</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>courseChange</servlet-name>
+		<servlet-class>course.monitor.changeAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseChange</servlet-name>
+		<url-pattern>/courseChange</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>courseSearch</servlet-name>
+		<servlet-class>course.monitor.searchAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseSearch</servlet-name>
+		<url-pattern>/courseSearch</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>courseInfoQuery</servlet-name>
+		<servlet-class>course.homepage.queryInfoAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseInfoQuery</servlet-name>
+		<url-pattern>/courseInfoQuery</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+
+
+
+
