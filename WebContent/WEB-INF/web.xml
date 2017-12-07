@@ -11,12 +11,57 @@
   </welcome-file-list>
 
 	<servlet>
-		<servlet-name>alluserQuery</servlet-name>
-		<servlet-class>user.monitor.queryallAction</servlet-class>
+		<servlet-name>DeleteCourse</servlet-name>
+		<servlet-class>course.monitor.DeleteCourse</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>alluserQuery</servlet-name>
-		<url-pattern>/alluserQuery</url-pattern>
+		<servlet-name>DeleteCourse</servlet-name>
+		<url-pattern>/DeleteCourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetCourseByIDandSerial</servlet-name>
+		<servlet-class>course.monitor.GetCourseByIDandSerial</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetCourseByIDandSerial</servlet-name>
+		<url-pattern>/GetCourseByIDandSerial</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetCourseByName</servlet-name>
+		<servlet-class>course.monitor.GetCourseByName</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetCourseByName</servlet-name>
+		<url-pattern>/GetCourseByName</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetCourseList</servlet-name>
+		<servlet-class>course.monitor.GetCourseList</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetCourseList</servlet-name>
+		<url-pattern>/GetCourseList</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InsertCourse</servlet-name>
+		<servlet-class>course.monitor.InsertCourse</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InsertCourse</servlet-name>
+		<url-pattern>/InsertCourse</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UpdateCourseInfo</servlet-name>
+		<servlet-class>course.monitor.UpdateCourseInfo</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateCourseInfo</servlet-name>
+		<url-pattern>/UpdateCourseInfo</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -26,79 +71,6 @@
 	<servlet-mapping>
 		<servlet-name>POIoutTemplate</servlet-name>
 		<url-pattern>/POIoutTemplate</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>userQuery</servlet-name>
-		<servlet-class>user.monitor.queryAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>userQuery</servlet-name>
-		<url-pattern>/userQuery</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>userChange</servlet-name>
-		<servlet-class>user.monitor.changeAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>userChange</servlet-name>
-		<url-pattern>/userChange</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>userSearch</servlet-name>
-		<servlet-class>user.monitor.searchAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>userSearch</servlet-name>
-		<url-pattern>/userSearch</url-pattern>
-	</servlet-mapping>
-	
-	
-	<servlet>
-		<servlet-name>allcourseQuery</servlet-name>
-		<servlet-class>course.monitor.queryallAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>allcourseQuery</servlet-name>
-		<url-pattern>/allcourseQuery</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>courseQuery</servlet-name>
-		<servlet-class>course.monitor.queryAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>courseQuery</servlet-name>
-		<url-pattern>/courseQuery</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>courseChange</servlet-name>
-		<servlet-class>course.monitor.changeAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>courseChange</servlet-name>
-		<url-pattern>/courseChange</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>courseSearch</servlet-name>
-		<servlet-class>course.monitor.searchAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>courseSearch</servlet-name>
-		<url-pattern>/courseSearch</url-pattern>
-	</servlet-mapping>
-	
-	
-	<servlet>
-		<servlet-name>courseInfoQuery</servlet-name>
-		<servlet-class>course.homepage.queryInfoAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>courseInfoQuery</servlet-name>
-		<url-pattern>/courseInfoQuery</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
