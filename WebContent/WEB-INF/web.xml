@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>TomcatTest</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+	<servlet>
+		<servlet-name>AllStudentQuery</servlet-name>
+		<servlet-class>user.monitor.queryAllStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllStudentQuery</servlet-name>
+		<url-pattern>/AllStudentQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AllTeacherQuery</servlet-name>
+		<servlet-class>user.monitor.queryAllTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AllTeacherQuery</servlet-name>
+		<url-pattern>/AllTeacherQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>POIoutTemplate</servlet-name>
+		<servlet-class>com.wp.poi.POIoutTemplate</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>POIoutTemplate</servlet-name>
+		<url-pattern>/POIoutTemplate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentQuery</servlet-name>
+		<servlet-class>user.monitor.queryStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentQuery</servlet-name>
+		<url-pattern>/studentQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>teacherQuery</servlet-name>
+		<servlet-class>user.monitor.queryTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teacherQuery</servlet-name>
+		<url-pattern>/teacherQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>teacherChange</servlet-name>
+		<servlet-class>user.monitor.changeTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teacherChange</servlet-name>
+		<url-pattern>/teacherChange</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentChange</servlet-name>
+		<servlet-class>user.monitor.changeStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentChange</servlet-name>
+		<url-pattern>/studentChange</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>teacherSearch</servlet-name>
+		<servlet-class>user.monitor.searchTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teacherSearch</servlet-name>
+		<url-pattern>/teacherSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentSearch</servlet-name>
+		<servlet-class>user.monitor.searchStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentSearch</servlet-name>
+		<url-pattern>/studentSearch</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>teacherAdd</servlet-name>
+		<servlet-class>user.monitor.addTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teacherAdd</servlet-name>
+		<url-pattern>/teacherAdd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentAdd</servlet-name>
+		<servlet-class>user.monitor.addStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentAdd</servlet-name>
+		<url-pattern>/studentAdd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>teacherDelete</servlet-name>
+		<servlet-class>user.monitor.deleteTeacherAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teacherDelete</servlet-name>
+		<url-pattern>/teacherDelete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>studentDelete</servlet-name>
+		<servlet-class>user.monitor.deleteStudentAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>studentDelete</servlet-name>
+		<url-pattern>/studentDelete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>allcourseQuery</servlet-name>
+		<servlet-class>course.monitor.queryallAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>allcourseQuery</servlet-name>
+		<url-pattern>/allcourseQuery</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>courseQuery</servlet-name>
+		<servlet-class>course.monitor.queryAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseQuery</servlet-name>
+		<url-pattern>/courseQuery</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>courseChange</servlet-name>
+		<servlet-class>course.monitor.changeAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseChange</servlet-name>
+		<url-pattern>/courseChange</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>courseSearch</servlet-name>
+		<servlet-class>course.monitor.searchAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseSearch</servlet-name>
+		<url-pattern>/courseSearch</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>courseInfoQuery</servlet-name>
+		<servlet-class>course.homepage.queryInfoAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>courseInfoQuery</servlet-name>
+		<url-pattern>/courseInfoQuery</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+
+
+
+
