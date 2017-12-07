@@ -24,6 +24,7 @@ var Record = function(){
 		$('#back_button').click(function() {Record.back();});
 		$('#change_button').click(function(){Record.change()});
 		$('#charts_button').click(function(){Record.charts()});
+		$('#add_button').click(function(){Record.add()});
 	}
 	
 	var submitRecord = function(){
@@ -31,9 +32,7 @@ var Record = function(){
 		search_form.submit();
 	}
 	
-	
 	var getRecord = function(){
-		
 		$.post("../../allcourseQuery",{},function(data){
 			var html="";
 			
@@ -46,39 +45,29 @@ var Record = function(){
 				var cName = courseList[i].cName;
 				//alert(className);
 				var cID = courseList[i].cID;
+				var cSerial = courseList[i].cSerial;
 				//alert(cID);
-				html=html+"								<div class=\"portlet box green\">";
-				html=html+"									<div class=\"portlet-title\">";
-				html=html+"										<div class=\"caption\">";
-				html=html+"											<i class=\"fa fa-gift\"></i>ID:"+cID;
-				html=html+"										</div>";
-				html=html+"									</div>";
-				html=html+"									<div class=\"portlet-body form\">";
 				html=html+"										<!-- BEGIN FORM-->";
 				html=html+"										<form action=\"courseInformation.jsp\" class=\"form-horizontal\">";
 				html=html+"											<div class=\"form-body\">";
 				html=html+"												<div class=\"form-group\">";
-				html=html+"													<label class=\"col-md-3 control-label\">课程名：</label>";
+				html=html+"												<div class=\"row\">";
+				html=html+"													<label class=\"col-md-3 control-label\">ID: "+cID+"</label>";
 				html=html+"													<div class=\"col-md-4\">";
 				html=html+"														<p type=\"text\" class=\"form-control input-circle\" placeholder=\"Enter text\">";
 				html=html+"														<span class=\"help-block\">";
 				html=html+"														"+cName+"</span>";
 				html=html+"													</div>";
-				html=html+"												</div>";
-				html=html+"											</div>";
-				html=html+"											<div class=\"form-actions\">";
-				html=html+"												<div class=\"row\">";
-				html=html+"													<div class=\"col-md-offset-3 col-md-9\">";
 				html=html+"														<input type=\"hidden\" name=\"cID\" value=\""+cID+"\">";
+				html=html+"														<input type=\"hidden\" name=\"cSerial\" value=\""+cSerial+"\">";
 				html=html+"														<button type=\"submit\" class=\"btn btn-circle blue\">查看详细</button>";
-				html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"window.location='courseDelete.jsp?cID="+cID+"'\">删除</button>";
-				html=html+"													</div>";
+				html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"window.location='courseDelete.jsp?cID="+cID+"&cSerial"+cSerial+"'\">删除</button>";
 				html=html+"												</div>";
 				html=html+"											</div>";
+				html=html+"												</div>";
 				html=html+"										</form>";
+				html=html+"										<hr></hr>";
 				html=html+"										<!-- END FORM-->";
-				html=html+"									</div>";
-				html=html+"								</div>";
 				}
 			document.getElementById("class_nav").innerHTML=html;
 		});
@@ -96,6 +85,9 @@ var Record = function(){
 		},
 		charts: function(){
 			window.location="courseChart.jsp";
+		},
+		add: function(){
+			window.location="courseAdd.jsp"
 		}
 	}
 }();

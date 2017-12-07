@@ -35,8 +35,8 @@ public class searchAction extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String name=request.getParameter("name");
-    	String action="teacher";
+    	String name=request.getParameter("sName");
+    	String action="student";
     	UserData userData = new UserData();
     	try {
             Connection conn = ConnectionFactory.getInstance().makeConnection();

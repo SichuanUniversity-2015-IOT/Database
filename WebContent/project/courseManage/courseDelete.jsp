@@ -74,32 +74,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						<%@ include file="sideBar.jsp" %>
 						<div class="col-md-8 col-sm-8">
 								<nav id="class_nav">
-					<%
-			String cID = request.getParameter("cID");
-			request.setCharacterEncoding("UTF-8");
-
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-			} catch (ClassNotFoundException classnotfoundexception) {
-				classnotfoundexception.printStackTrace();
-			}
-			try {
-				Connection conn = DriverManager
-						.getConnection("jdbc:mysql://123.207.118.144:3306/720class?user=ylx&password=ylx&useUnicode=true&characterEncoding=UTF-8");
-				Statement statement = conn.createStatement();
-				String sql = "delete from course where cID=" + cID;
-				statement.executeUpdate(sql);
-				statement.close();
-				conn.close();
-				
-		%>
+					
 		<input type="button"  value="返回列表" onclick="back()">
-		<% 
-				} catch (SQLException sqlexception) {
-				sqlexception.printStackTrace();
-			}
-		%>
-								</nav>
+							</nav>
 						</div>
 				</div>
 			</div>

@@ -144,13 +144,16 @@ function initPage(){
 			var cName = courseList[i].cName;
 				//alert(className);
 				var cID = courseList[i].cID;
+				var cSerial = courseList[i].cSerial;
 				//alert(cID);
 		html=html+"								<div class=\"portlet box green\">";
+		
 		html=html+"									<div class=\"portlet-title\">";
 		html=html+"										<div class=\"caption\">";
-		html=html+"											<i class=\"fa fa-gift\"></i>ID:"+cID;
+		html=html+"											<i class=\"fa fa-gift\"></i>课程号: "+cID +", 课序号: "+cSerial;
 		html=html+"										</div>";
 		html=html+"									</div>";
+		
 		html=html+"									<div class=\"portlet-body form\">";
 		html=html+"										<!-- BEGIN FORM-->";
 		html=html+"										<form action=\"courseInformation.jsp\" class=\"form-horizontal\">";

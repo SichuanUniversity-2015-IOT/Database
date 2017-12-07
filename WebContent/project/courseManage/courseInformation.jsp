@@ -52,6 +52,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- BEGIN BODY -->
 	<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed page-sidebar-closed-hide-logo page-container-bg-solid" onload="initPage()">
 		<% 	String cID=request.getParameter("cID");
+			String cSerial = request.getParameter("cSerial");
 			int cIDint = Integer.parseInt(cID);
 			int precID = -1;
 			int nextcID = -1;
@@ -163,20 +164,24 @@ Profile.init(); // init page demo
 
 <script>
 var cID = "<%=cID%>";
+var cSerial = "<%=cSerial%>";
 var precID = <%=precID%>;
 var nextcID = <%=nextcID%>;
 function initPage(){
-	$.post("../../courseQuery",{cID: cID},function(data){
+	$.post("../../courseQuery",{cID: cID, cSerial: cSerial},function(data){
 		var html="";
-		alert(data);
+		//alert(data);
 		var courseInfo=eval("("+data+")");
 		
 		var cName = courseInfo.cName;
 		var cID = courseInfo.cID;
-		var tName = courseInfo.tName;
-		var classroom = courseInfo.classroom;
-		var date = courseInfo.date;
-		var aID = courseInfo.aID;
+		var cSerial = courseInfo.cSerial;
+		//var tName = courseInfo.tName;
+		var cRoom = courseInfo.cRoom;
+		var cTime = courseInfo.cTime;
+		var aName = courseInfo.aName;
+		var cWeek = courseInfo.cWeek;
+		var cCredit = courseInfo.cCredit;
 		
 		
 				
@@ -198,32 +203,53 @@ function initPage(){
 			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cName\" placeholder=\"Enter text\" value="+cName+">";
 			html=html+"													</div>";
 			html=html+"												</div>";
-				
+			
+			html=html+"												<div class=\"form-group\">";
+			html=html+"													<label class=\"col-md-2 control-label\">课序号：</label>";
+			html=html+"													<div class=\"col-md-4\">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cSerial\" placeholder=\"Enter text\" value="+cSerial+">";
+			html=html+"													</div>";
+			html=html+"												</div>";
+			
 			html=html+"												<div class=\"form-group\">";
 			html=html+"													<label class=\"col-md-2 control-label\">院系：</label>";
 			html=html+"													<div class=\"col-md-4\">";
-			html=html+"														<input type=\"text\" class=\"form-control\" name=\"aID\" placeholder=\"Enter text\" value="+aID+">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"aName\" placeholder=\"Enter text\" value="+aName+">";
 			html=html+"													</div>";
 			html=html+"												</div>";
 				
-			html=html+"												<div class=\"form-group\">";
+			/* html=html+"												<div class=\"form-group\">";
 			html=html+"													<label class=\"col-md-2 control-label\">授课老师：</label>";
 			html=html+"													<div class=\"col-md-4\">";
 			html=html+"														<input type=\"text\" class=\"form-control\" name=\"tName\" placeholder=\"Enter text\" value="+tName+">";
 			html=html+"													</div>";
-			html=html+"												</div>";
+			html=html+"												</div>"; */
 				
 			html=html+"												<div class=\"form-group\">";
 			html=html+"													<label class=\"col-md-2 control-label\">授课教室：</label>";
 			html=html+"													<div class=\"col-md-4\">";
-			html=html+"														<input type=\"text\" class=\"form-control\" name=\"classroom\" placeholder=\"Enter text\" value="+classroom+">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cRoom\" placeholder=\"Enter text\" value="+cRoom+">";
+			html=html+"													</div>";
+			html=html+"												</div>";
+			
+			html=html+"												<div class=\"form-group\">";
+			html=html+"													<label class=\"col-md-2 control-label\">周次：</label>";
+			html=html+"													<div class=\"col-md-4\">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cWeek\" placeholder=\"Enter text\" value="+cWeek+">";
 			html=html+"													</div>";
 			html=html+"												</div>";
 				
 			html=html+"												<div class=\"form-group\">";
 			html=html+"													<label class=\"col-md-2 control-label\">上课时间：</label>";
 			html=html+"													<div class=\"col-md-4\">";
-			html=html+"														<input type=\"text\" class=\"form-control\" name=\"date\" placeholder=\"Enter text\" value="+date+">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cTime\" placeholder=\"Enter text\" value="+cTime+">";
+			html=html+"													</div>";
+			html=html+"												</div>";
+			
+			html=html+"												<div class=\"form-group\">";
+			html=html+"													<label class=\"col-md-2 control-label\">学分：</label>";
+			html=html+"													<div class=\"col-md-4\">";
+			html=html+"														<input type=\"text\" class=\"form-control\" name=\"cCredit\" placeholder=\"Enter text\" value="+cCredit+">";
 			html=html+"													</div>";
 			html=html+"												</div>";
 				

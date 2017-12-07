@@ -23,6 +23,8 @@ var Record = function(){
 		$('#submit_button').click(function() {Record.submitRecord();});
 		$('#back_button').click(function() {Record.back();});
 		$('#change_button').click(function(){Record.change()});
+		$('#charts_button').click(function(){Record.charts()});
+		$('#add_button').click(function(){Record.add()});
 	}
 	
 	var submitRecord = function(){
@@ -42,38 +44,28 @@ var Record = function(){
 				var sName = studentList[i].sName;
 				var sID = studentList[i].sID;
 				
-				html=html+"								<div class=\"portlet box green\">";
-				html=html+"									<div class=\"portlet-title\">";
-				html=html+"										<div class=\"caption\">";
-				html=html+"											<i class=\"fa fa-gift\"></i>ID:"+sID;
-				html=html+"										</div>";
-				html=html+"									</div>";
-				html=html+"									<div class=\"portlet-body form\">";
+
 				html=html+"										<!-- BEGIN FORM-->";
 				html=html+"										<form action=\"studentInformation.jsp\" class=\"form-horizontal\">";
 				html=html+"											<div class=\"form-body\">";
 				html=html+"												<div class=\"form-group\">";
-				html=html+"													<label class=\"col-md-3 control-label\">用户名：</label>";
+				html=html+"												<div class=\"row\">";
+				html=html+"													<label class=\"col-md-3 control-label\">ID: "+sID+"</label>";
 				html=html+"													<div class=\"col-md-4\">";
 				html=html+"														<p type=\"text\" class=\"form-control input-circle\" placeholder=\"Enter text\">";
 				html=html+"														<span class=\"help-block\">";
 				html=html+"														"+sName+"</span>";
 				html=html+"													</div>";
-				html=html+"												</div>";
-				html=html+"											</div>";
-				html=html+"											<div class=\"form-actions\">";
-				html=html+"												<div class=\"row\">";
-				html=html+"													<div class=\"col-md-offset-3 col-md-9\">";
-				html=html+"														<input type=\"hidden\" name=\"id\" value=\""+sID+"\">";
+				html=html+"														<input type=\"hidden\" name=\"sID\" value=\""+sID+"\">";
 				html=html+"														<button type=\"submit\" class=\"btn btn-circle blue\">查看详细</button>";
-				html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"window.location='studentDelete.jsp?id="+sID+"'\">删除</button>";
+				html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"window.location='studentDelete.jsp?sID="+sID+"'\">删除</button>";
 				html=html+"													</div>";
 				html=html+"												</div>";
 				html=html+"											</div>";
 				html=html+"										</form>";
+				html=html+"										<hr></hr>";
 				html=html+"										<!-- END FORM-->";
-				html=html+"									</div>";
-				html=html+"								</div>";
+				
 				}
 			document.getElementById("class_nav").innerHTML=html;
 		});
@@ -88,6 +80,12 @@ var Record = function(){
 		},
 		change:function(){
 			window.location="teacherList.jsp";
+		},
+		charts: function(){
+			window.location="userChart.jsp";
+		},
+		add: function(){
+			window.location="studentAdd.jsp";
 		}
 	}
 }();

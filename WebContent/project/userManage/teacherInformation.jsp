@@ -51,13 +51,12 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- END HEAD -->
 	<!-- BEGIN BODY -->
 	<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed page-sidebar-closed-hide-logo page-container-bg-solid" onload="initPage()">
-		<% 	String id=request.getParameter("id");
-			int idInt = Integer.parseInt(id);
-			String model=(String)session.getAttribute("model");
+		<% 	String tID=request.getParameter("tID");
+			int idInt = Integer.parseInt(tID);
+			System.out.println(tID + idInt);
 			int pretID = -1;
 			int nexttID = -1;
-			int presID = -1;
-			int nextsID = -1;
+			
 			
 			JSONObject userData = null;
 			if(session.getAttribute("userData")!=null){
@@ -173,61 +172,82 @@ Profile.init(); // init page demo
 <script>
 var nexttID = <%=nexttID%>;
 var pretID = <%=pretID%>;
-var nextsID = <%=nextsID%>;
-var presID = <%=presID%>;
+var tID = "<%=tID%>";
 function initPage(){
 	
-	var id = "<%=id%>";
-	$.post("../../userQuery",{id: id},function(data){
+	
+	//alert(tID);
+	$.post("../../userQuery",{tID: tID},function(data){
 		//alert(0);
 		var html="";
 		var json=eval("("+data+")");
 		
 		
-		var name = json.tName;
-		var id = json.tID;
-		var aID = json.aID;
-		var email = json.tEmail;
-		var major = json.tField;
-		
+		var tName = json.tName;
+		var tID = json.tID;
+		var aName = json.aName;
+		var tEmail = json.tEmail;
+		var tField = json.tField;
+		var tTitle = json.tTitle;
+		var tPhone = json.tPhone;
 		
 		html=html+"								<div class=\"portlet box green\">";
 		html=html+"									<div class=\"portlet-title\">";
 		html=html+"										<div class=\"caption\">";
-		html=html+"											<i class=\"fa fa-gift\"></i>"+name;
+		html=html+"											<i class=\"fa fa-gift\"></i>"+tName;
 		html=html+"										</div>";
 		html=html+"									</div>";
 		html=html+"									<div class=\"portlet-body form\">";
 		html=html+"										<!-- BEGIN FORM-->";
 		html=html+"										<form action=\"../../userChange\" class=\"form-horizontal\">";
 		html=html+"											<div class=\"form-body\">";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">教师ID：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tID\" placeholder=\"Enter text\" value="+tID+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">名字：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"hidden\" name=\"id\" value="+id+">";
-		
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"name\" placeholder=\"Enter text\" value="+name+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tName\" placeholder=\"Enter text\" value="+tName+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">学院：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"aID\" placeholder=\"Enter text\" value="+aID+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"aName\" placeholder=\"Enter text\" value="+aName+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">邮箱：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"email\" placeholder=\"Enter text\" value="+email+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tEmail\" placeholder=\"Enter text\" value="+tEmail+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">专业：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"major\" placeholder=\"Enter text\" value="+major+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tField\" placeholder=\"Enter text\" value="+tField+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">职称：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tTitle\" placeholder=\"Enter text\" value="+tTitle+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">电话：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"tPhone\" placeholder=\"Enter text\" value="+tPhone+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
@@ -239,6 +259,7 @@ function initPage(){
 		html=html+"														<button type=\"button\" class=\"btn btn-circle green\" onclick=\"back()\">返回</button>";
 		html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"pre()\">上一个</button>";
 		html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"next()\">下一个</button>";
+		html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"course()\">开设的课程</button>";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		html=html+"											</div>";
@@ -256,7 +277,7 @@ function back(){
 }
 function next(){
 		if(nexttID != -1){
-			var url = "teacherInformation.jsp?id="+nexttID;
+			var url = "teacherInformation.jsp?tID="+nexttID;
 			window.location = url;
 		}else{
 			alert("已经到底了！");
@@ -265,11 +286,15 @@ function next(){
 function pre(){
 	
 		if(pretID != -1){
-			var url = "teacherInformation.jsp?id="+pretID;
+			var url = "teacherInformation.jsp?tID="+pretID;
 			window.location = url;
 		}else{
 			alert("已经到头了！");
 		}
+}
+
+function course(){
+	window.location = "courseOffer.jsp?tID="+tID;
 }
 
 </script>

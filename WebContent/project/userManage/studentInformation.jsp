@@ -51,10 +51,9 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!-- END HEAD -->
 	<!-- BEGIN BODY -->
 	<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed page-sidebar-closed-hide-logo page-container-bg-solid" onload="initPage()">
-		<% 	String id=request.getParameter("id");
-			int idInt = Integer.parseInt(id);
-			int pretID = -1;
-			int nexttID = -1;
+		<% 	String sID=request.getParameter("sID");
+			int idInt = Integer.parseInt(sID);
+			
 			int presID = -1;
 			int nextsID = -1;
 			
@@ -165,62 +164,93 @@ Profile.init(); // init page demo
 </html>
 
 <script>
-var nexttID = <%=nexttID%>;
-var pretID = <%=pretID%>;
 var nextsID = <%=nextsID%>;
 var presID = <%=presID%>;
 function initPage(){
 	
-	var id = "<%=id%>";
-	$.post("../../userQuery",{id: id},function(data){
+	var sID = "<%=sID%>";
+	$.post("../../userQuery",{sID: sID},function(data){
+		//alert(0);
 		var html="";
 		var json=eval("("+data+")");
 		
-		var name = json.sName;
-		var id = json.sID;
-		var aID = json.aID;
-		var email = json.sEmail;
-		var major = json.sMajor;
+		var sName = json.sName;
+		var sID = json.sID;
+		var aName = json.aName;
+		var sEmail = json.sEmail;
+		var sMajor = json.sMajor;
+		var sMinor = json.sMinor;
+		var AVG = json.AVG;
+		var sPhone = json.sPhone;
+		//alert(sName);
 		
 		html=html+"								<div class=\"portlet box green\">";
 		html=html+"									<div class=\"portlet-title\">";
 		html=html+"										<div class=\"caption\">";
-		html=html+"											<i class=\"fa fa-gift\"></i>"+name;
+		html=html+"											<i class=\"fa fa-gift\"></i>"+sName;
 		html=html+"										</div>";
 		html=html+"									</div>";
 		html=html+"									<div class=\"portlet-body form\">";
 		html=html+"										<!-- BEGIN FORM-->";
 		html=html+"										<form action=\"../../userChange\" class=\"form-horizontal\">";
 		html=html+"											<div class=\"form-body\">";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">学号：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sID\" placeholder=\"Enter text\" value="+sID+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">名字：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"hidden\" name=\"id\" value="+id+">";
-		
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"name\" placeholder=\"Enter text\" value="+name+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sName\" placeholder=\"Enter text\" value="+sName+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">学院：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"aID\" placeholder=\"Enter text\" value="+aID+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"aName\" placeholder=\"Enter text\" value="+aName+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">主修专业：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sMajor\" placeholder=\"Enter text\" value="+sMajor+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">辅修专业：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sMinor\" placeholder=\"Enter text\" value="+sMinor+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">邮箱：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"email\" placeholder=\"Enter text\" value="+email+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sEmail\" placeholder=\"Enter text\" value="+sEmail+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		
 		html=html+"												<div class=\"form-group\">";
-		html=html+"													<label class=\"col-md-3 control-label\">专业：</label>";
+		html=html+"													<label class=\"col-md-3 control-label\">电话：</label>";
 		html=html+"													<div class=\"col-md-4\">";
-		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"major\" placeholder=\"Enter text\" value="+major+">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"sPhone\" placeholder=\"Enter text\" value="+sPhone+">";
 		html=html+"													</div>";
 		html=html+"												</div>";
+		
+		html=html+"												<div class=\"form-group\">";
+		html=html+"													<label class=\"col-md-3 control-label\">均分：</label>";
+		html=html+"													<div class=\"col-md-4\">";
+		html=html+"														<input type=\"text\" class=\"form-control input-circle\" name=\"AVG\" placeholder=\"Enter text\" value="+AVG+">";
+		html=html+"													</div>";
+		html=html+"												</div>";
+		
 		
 		html=html+"											</div>";
 		html=html+"											<div class=\"form-actions\">";
@@ -247,7 +277,7 @@ function back(){
 }
 function next(){
 		if(nextsID != -1){
-			var url = "studentInformation.jsp?id="+nextsID;
+			var url = "studentInformation.jsp?sID="+nextsID;
 			window.location = url;
 		}else{
 			alert("已经到底了！");
@@ -255,7 +285,7 @@ function next(){
 }
 function pre(){
 		if(presID != -1){
-			var url = "studentInformation.jsp?id="+presID;
+			var url = "studentInformation.jsp?sID="+presID;
 			window.location = url;
 		}else{
 			alert("已经到头了！");

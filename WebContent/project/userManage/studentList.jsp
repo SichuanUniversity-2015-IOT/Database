@@ -79,17 +79,14 @@ License: You must have a valid license purchased only from themeforest(the above
 												<div class="form-group">
 													<label class="col-md-3 control-label">用户名称</label>
 													<div class="row">
-													<div class="col-md-4">
-														<input type="text" class="form-control" placeholder="输入课程名称" name="name">
-														<input type="hidden" name="model" id="model" value="student">
+													<div class="col-md-2">
+														<input type="text" class="form-control" placeholder="输入课程名称" name="sName">
 													</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-md-offset-7 col-md-9">
 														<button type="button" class="btn green" id="submit_button">搜索</button>
 														<button type="button" class="btn red" onclick ="test()">打印</button>
 														<button type="button" class="btn default" id="change_button">切换到教师用户</button>
+														<button type="button" class="btn default" id="charts_button">统计</button>
+														<button type="button" class="btn default" id="add_button">添加</button>
 													</div>
 												</div>
 											</div>
@@ -97,9 +94,18 @@ License: You must have a valid license purchased only from themeforest(the above
 										<!-- END FORM-->
 									</div>
 								</div>
+								<div class="portlet box green">
+												<div class="portlet-title">
+													<div class="caption">
+															<i class="fa fa-gift"></i>学生列表
+													</div>
+												</div>
+												<div class="portlet-body form">
 								<nav id="class_nav">
-					
+								
 								</nav>
+								</div>
+								</div>
 						</div>
 				</div>
 			</div>

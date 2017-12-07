@@ -49,7 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	</head>
 	<!-- END HEAD -->
 	<!-- BEGIN BODY -->
-	<% 	String name=request.getParameter("name");%>
+	<% 	String tName=request.getParameter("tName");%>
 	<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed page-sidebar-closed-hide-logo page-container-bg-solid" onload="initPage()">
 		 
 		
@@ -133,8 +133,8 @@ Profile.init(); // init page demo
 
 <script>
 function initPage(){
-	var name = "<%=name%>";
-	$.post("../../userSearch",{name: name},function(data){
+	var tName = "<%=tName%>";
+	$.post("../../userSearch",{tName: tName},function(data){
 		var html="";
 		var userData=eval("("+data+")");
 		
@@ -144,35 +144,35 @@ function initPage(){
 		
 		for(var i=0;i<list.length;i++){
 			
-				var name=list[i].sName;
+				var tName=list[i].tName;
 				//alert(name);
-				var id = list[i].sID;
+				var tID = list[i].tID;
 			
 		html=html+"								<div class=\"portlet box green\">";
 		html=html+"									<div class=\"portlet-title\">";
 		html=html+"										<div class=\"caption\">";
-		html=html+"											<i class=\"fa fa-gift\"></i>ID:"+id;
+		html=html+"											<i class=\"fa fa-gift\"></i>ID:"+tID;
 		html=html+"										</div>";
 		html=html+"									</div>";
 		html=html+"									<div class=\"portlet-body form\">";
 		html=html+"										<!-- BEGIN FORM-->";
-		html=html+"										<form action=\"userInformation.jsp\" class=\"form-horizontal\">";
+		html=html+"										<form action=\"teacherInformation.jsp\" class=\"form-horizontal\">";
 		html=html+"											<div class=\"form-body\">";
 		html=html+"												<div class=\"form-group\">";
 		html=html+"													<label class=\"col-md-3 control-label\">课程名称：</label>";
 		html=html+"													<div class=\"col-md-4\">";
 		html=html+"														<p type=\"text\" class=\"form-control input-circle\" placeholder=\"Enter text\">";
 		html=html+"														<span class=\"help-block\">";
-		html=html+"														"+name+"</span>";
+		html=html+"														"+tName+"</span>";
 		html=html+"													</div>";
 		html=html+"												</div>";
 		html=html+"											</div>";
 		html=html+"											<div class=\"form-actions\">";
 		html=html+"												<div class=\"row\">";
 		html=html+"													<div class=\"col-md-offset-3 col-md-9\">";
-		html=html+"														<input type=\"hidden\" name=\"id\" value=\""+id+"\">";
+		html=html+"														<input type=\"hidden\" name=\"tID\" value=\""+tID+"\">";
 		html=html+"														<button type=\"submit\" class=\"btn btn-circle blue\">查看详细</button>";
-		html=html+"														<button type=\"button\" class=\"btn btn-circle red\" onclick=\"window.location='userDelete.jsp?id="+id+"'\">删除</button>";
+		html=html+"														<button type=\"button\" class=\"btn btn-circle red\" onclick=\"window.location='teacherDelete.jsp?tID="+tID+"'\">删除</button>";
 		html=html+"														<button type=\"button\" class=\"btn btn-circle default\" onclick=\"window.location='teacherList.jsp'\">返回</button>";
 		html=html+"													</div>";
 		html=html+"												</div>";

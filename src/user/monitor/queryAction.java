@@ -33,8 +33,8 @@ public class queryAction extends HttpServlet{
 
 	    public void doGet(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
-	    	String id=request.getParameter("id");
-	    	String action="teacher";
+	    	String id=request.getParameter("sID");
+	    	String action="student";
 	    	response.setContentType("text/html; charset=UTF-8");
 	    	
             try {
